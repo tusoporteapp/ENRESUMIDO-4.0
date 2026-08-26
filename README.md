@@ -15,3 +15,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - `sw.js` & `manifest.webmanifest`: Service Worker y manifiesto PWA para instalación móvil nativa (iOS / Android) y soporte offline.
   - Iconos PWA vectoriales (`pwa-192.svg`, `pwa-512.svg`, `pwa-maskable.svg`).
 - **Estado de la Compilación**: Exitosa, sin errores de TypeScript (`tsc --noEmit` validado).
+
+### ☁️ [2026-08-26] - Integración Cloudflare & Serverless Functions
+- **Conexión Cloudflare Pages**: Verificada y configurada mediante Wrangler con la cuenta `tusoporte.app@gmail.com` (`Account ID: d82c409030f0de760d49d71a9cbc7201`).
+- **Configuración de Proyecto**: Añadido [`wrangler.toml`](file:///c:/Users/migo/Documents/PROYECTOS/ENRESUMIDO%204.0/wrangler.toml) vinculado al proyecto `enresumido-4-0` (`https://enresumido-4-0.pages.dev`).
+- **Cloudflare Edge Functions (`functions/api`)**:
+  - `/api/rss`: Proxy serverless para feeds RSS de Anchor/Spotify en el Edge.
+  - `/api/catalog`: API de catálogo de episodios con paginación y búsqueda ultra rápida.
+  - `/api/stream`: Proxy de streaming de audio.
+- **Capacidades Habilitadas**: Creación, edición, consulta y despliegue directo tanto por Git como por CLI de Cloudflare.
