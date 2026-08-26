@@ -182,6 +182,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Reubicada la cápsula flotante de Toast a `top-[calc(env(safe-area-inset-top,0px)+3.85rem)]`, flotando libremente debajo del encabezado sin ser tapada por el Notch, Dynamic Island o la cámara frontal de ningún iPhone/Android.
   - Diseño ultra-minimalista con efecto de cristal (*glassmorphism*), tipografía condensada y temporizador reducido a **máximo 2 segundos**.
 
+### ✨ [2026-08-26] - Versión 4.0.17: Cero Peticiones Innecesarias & Arquitectura Offline-First de Alto Rendimiento
+- **⚡ Apertura Instantánea con 0 Peticiones de Red**:
+  - Eliminadas las llamadas de sincronización obligatorias en el montaje inicial y al cambiar de pestaña.
+  - Implementado guardián inteligente con cooldown de 12 horas (`STORAGE_KEY_LAST_SYNC_TIMESTAMP`), cargando instantáneamente desde el almacenamiento local sin consumir cuota de Cloudflare.
+
+
 
 
 
