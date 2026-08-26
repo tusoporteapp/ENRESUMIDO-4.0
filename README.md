@@ -211,6 +211,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Algoritmo inteligente que **nunca repite audios** en rotaciones sucesivas y **excluye audios ya escuchados** por el usuario.
   - Se renueva automáticamente cada 24 horas y puede reabrirse en cualquier momento desde la pestaña Explorar.
 
+### ✨ [2026-08-26] - Versión 4.0.22: Bloqueo de Scroll de Fondo y Desplazamiento Autónomo en Modales
+- **🔒 Bloqueo Estricto de Scroll en la Página Principal**:
+  - Al abrir el modal de recomendación diaria (o reproductores a pantalla completa), el fondo se bloquea de forma inmediata (`body`/`html` `overflow: hidden`, `touch-action: none`).
+  - La lista de tarjetas del modal cuenta con `overscroll-behavior: contain` y `touch-action: pan-y`, asegurando que los deslizamientos táctiles se queden 100% dentro del modal sin mover la vista de Explorar.
+
+
 
 
 
