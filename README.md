@@ -177,6 +177,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Toda la ingesta y verificación de novedades se ejecuta de forma 100% transparente y automática en segundo plano (*Edge Background Sync*).
   - La interfaz de Ajustes queda más limpia, enfocada en Tema, Alertas, Offline y Reconocimiento al Creador Miguel E. Heredia (@migocreativo).
 
+### ✨ [2026-08-26] - Versión 4.0.16: Notificaciones Toast Ultra-Minimalistas y Compatibles con iPhone Notch / Dynamic Island
+- **📱 Posicionamiento Seguro Bajo el Notch e Isla Dinámica**:
+  - Reubicada la cápsula flotante de Toast a `top-[calc(env(safe-area-inset-top,0px)+3.85rem)]`, flotando libremente debajo del encabezado sin ser tapada por el Notch, Dynamic Island o la cámara frontal de ningún iPhone/Android.
+  - Diseño ultra-minimalista con efecto de cristal (*glassmorphism*), tipografía condensada y temporizador reducido a **máximo 2 segundos**.
+
+
 
 
 
