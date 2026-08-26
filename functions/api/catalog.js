@@ -254,13 +254,13 @@ export async function onRequest(context) {
   const jsonHeaders = {
     "Content-Type": "application/json; charset=utf-8",
     "Access-Control-Allow-Origin": "*",
-    "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
+    "Cache-Control": "public, max-age=1800, s-maxage=3600, stale-while-revalidate=86400",
   };
 
   try {
     const url = new URL(context.request.url);
     const page = Math.max(1, parseInt(url.searchParams.get("page") || "1", 10));
-    const limit = Math.min(10000, Math.max(1, parseInt(url.searchParams.get("limit") || "50", 10)));
+    const limit = Math.min(1000, Math.max(1, parseInt(url.searchParams.get("limit") || "30", 10)));
     const categoryFilter = url.searchParams.get("category") || null;
     const authorFilter = url.searchParams.get("author") || null;
     const searchQuery = (url.searchParams.get("search") || url.searchParams.get("q") || "").trim().toLowerCase();
@@ -268,6 +268,78 @@ export async function onRequest(context) {
     const feedUrl = url.searchParams.get("feedUrl") || DEFAULT_ANCHOR_RSS;
     const forceFresh = url.searchParams.get("fresh") === "true";
 
+    // 1. Si existe Cloudflare D1 Binding (context.env.DB)
+    if (context.env && context.env.DB) {
+      const db = context.env.DB;
+      let sql = "SELECT * FROM episodes WHERE 1=1";
+      const params = [];
+
+      if (categoryFilter && categoryFilter !== "TODOS") {
+        sql += " AND category = ?";
+        params.push(normalizeCategory(categoryFilter));
+      }
+
+      if (authorFilter) {
+        sql += " AND original_author LIKE ?";
+        params.push(`%${authorFilter}%`);
+      }
+
+      if (searchQuery) {
+        const cleanQ = `%${searchQuery}%`;
+        sql += " AND (title LIKE ? OR original_author LIKE ? OR description LIKE ?)";
+        params.push(cleanQ, cleanQ, cleanQ);
+      }
+
+      if (sort === "duration_asc") {
+        sql += " ORDER BY duration_seconds ASC";
+      } else if (sort === "duration_desc") {
+        sql += " ORDER BY duration_seconds DESC";
+      } else if (sort === "title_asc") {
+        sql += " ORDER BY title ASC";
+      } else {
+        sql += " ORDER BY pub_date DESC";
+      }
+
+      const offset = (page - 1) * limit;
+      sql += " LIMIT ? OFFSET ?";
+      params.push(limit, offset);
+
+      const { results } = await db.prepare(sql).bind(...params).all();
+
+      let countSql = "SELECT COUNT(*) as total FROM episodes WHERE 1=1";
+      const countParams = [];
+      if (categoryFilter && categoryFilter !== "TODOS") {
+        countSql += " AND category = ?";
+        countParams.push(normalizeCategory(categoryFilter));
+      }
+      if (searchQuery) {
+        const cleanQ = `%${searchQuery}%`;
+        countSql += " AND (title LIKE ? OR original_author LIKE ? OR description LIKE ?)";
+        countParams.push(cleanQ, cleanQ, cleanQ);
+      }
+      const countRow = await db.prepare(countSql).bind(...countParams).first();
+      const total = countRow ? countRow.total : results.length;
+      const totalPages = Math.ceil(total / limit);
+
+      return new Response(
+        JSON.stringify({
+          source: "d1",
+          episodes: results || [],
+          pagination: {
+            page,
+            limit,
+            totalEpisodes: total,
+            filteredTotal: total,
+            totalPages,
+            hasMore: page < totalPages,
+            nextPage: page < totalPages ? page + 1 : null,
+          },
+        }),
+        { headers: jsonHeaders }
+      );
+    }
+
+    // 2. Fallback con memoria y RSS parsing
     const catalog = await getOrFetchMasterCatalog(context.env, feedUrl, forceFresh);
 
     if (!catalog || !catalog.episodes) {
@@ -283,8 +355,8 @@ export async function onRequest(context) {
 
     let filtered = [...catalog.episodes];
 
-    // 1. Filtrar por categoría (ej. Libros, Series, Películas, etc.)
-    if (categoryFilter) {
+    // Filtrar por categoría
+    if (categoryFilter && categoryFilter !== "TODOS") {
       const targetNorm = normalizeCategory(categoryFilter);
       filtered = filtered.filter((ep) => {
         const epNorm = normalizeCategory(ep.category || ep.title);
@@ -292,7 +364,7 @@ export async function onRequest(context) {
       });
     }
 
-    // 2. Filtrar por autor
+    // Filtrar por autor
     if (authorFilter) {
       const authLow = authorFilter.toLowerCase();
       filtered = filtered.filter((ep) => {
@@ -300,7 +372,7 @@ export async function onRequest(context) {
       });
     }
 
-    // 3. Filtrar por búsqueda de texto
+    // Filtrar por búsqueda de texto
     if (searchQuery) {
       const cleanSearch = searchQuery.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       filtered = filtered.filter((ep) => {
@@ -310,7 +382,7 @@ export async function onRequest(context) {
       });
     }
 
-    // 4. Ordenar
+    // Ordenar
     if (sort === "duration_asc") {
       filtered.sort((a, b) => a.durationSeconds - b.durationSeconds);
     } else if (sort === "duration_desc") {
@@ -319,7 +391,7 @@ export async function onRequest(context) {
       filtered.sort((a, b) => a.title.localeCompare(b.title));
     }
 
-    // 5. Paginación serverless
+    // Paginación serverless
     const filteredTotal = filtered.length;
     const totalPages = Math.ceil(filteredTotal / limit);
     const startIndex = (page - 1) * limit;

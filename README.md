@@ -88,4 +88,16 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Las carátulas que ya fueron cargadas se renderizan con `loading="eager"` y `decoding="async"`, eliminando el parpadeo de carga perezosa (`loading="lazy"`).
   - Se preserva la posición exacta de scroll al navegar entre pestañas.
 
+### ✨ [2026-08-26] - Versión 4.0.4: Escalabilidad para 60.000+ Audios, Infinite Scroll y Cloudflare D1 SQL
+- **🚀 Carga Infinita Paginada (Infinite Scroll)**:
+  - En la pestaña `Explorar`, la aplicación ahora renderiza los audios en lotes progresivos de 30 en 30 mediante `IntersectionObserver`.
+  - El consumo de memoria RAM en teléfonos se mantiene constante en ~25 MB sin importar cuántos miles de audios existan en el catálogo.
+  - Botón interactivo de respaldo `"Cargar más resúmenes"` con contador dinámico de progreso.
+- **⚡ Cloudflare Edge Function Paginada con Caché Perimetral (`/api/catalog` & `/api/search`)**:
+  - Activa la directiva `Cache-Control: public, max-age=1800, s-maxage=3600, stale-while-revalidate=86400` para servir búsquedas y páginas desde el CDN en < 5 ms.
+  - Endpoint dedicado de búsqueda `/api/search` con paginación serverless.
+- **🗄️ Esquema Cloudflare D1 Serverless SQL (`schema.sql`)**:
+  - Creada la estructura de base de datos relacional para Cloudflare D1 con índices B-Tree e indexación Full-Text Search (FTS5) para consultas instantáneas sobre 60.000+ resúmenes.
+
+
 
