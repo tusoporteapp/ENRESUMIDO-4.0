@@ -167,6 +167,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Al cambiar de pestaña, la vista restaura automáticamente su posición anterior de lectura sin saltos visuales ni afectación cruzada.
   - Al pulsar sobre la pestaña actualmente activa, se realiza un desplazamiento suave hacia arriba (*Scroll to Top*), emulando la experiencia de aplicaciones nativas móviles.
 
+### ✨ [2026-08-26] - Versión 4.0.14: Reinicio Limpio al Inicio Instantáneo al Cambiar de Pestaña (Comportamiento Nativo)
+- **⚡ Apertura Instantánea desde Arriba (`top: 0`)**:
+  - Al cambiar a cualquier pestaña (*Ajustes*, *Explorar*, *Favoritos*, etc.), la vista siempre inicia de inmediato en la parte superior sin animaciones de desplazamiento ascendente.
+  - Al volver a pulsar la pestaña activa, se conserva la opción de subir suavemente hasta el encabezado.
+
+
 
 
 
