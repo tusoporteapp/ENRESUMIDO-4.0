@@ -161,6 +161,13 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Cache-busting explícito (`?v=4.0.12`) en `index.html` para forzar a Safari en iPhone a descartar cualquier caché antigua y tomar el logo minimalista blanco/negro oficial.
   - Estandarización de `theme-color` y `background_color` en negro puro (`#000000`) en `manifest.webmanifest` e `index.html`.
 
+### ✨ [2026-08-26] - Versión 4.0.13: Scroll Independiente por Pestaña y Navegación Nativa Scroll-to-Top
+- **📱 Memoria de Desplazamiento Aislada por Pestaña**:
+  - Implementado sistema de retención de scroll independiente para cada pestaña (*Explorar*, *Favoritos*, *Historial*, *Descargas*, *Ajustes*).
+  - Al cambiar de pestaña, la vista restaura automáticamente su posición anterior de lectura sin saltos visuales ni afectación cruzada.
+  - Al pulsar sobre la pestaña actualmente activa, se realiza un desplazamiento suave hacia arriba (*Scroll to Top*), emulando la experiencia de aplicaciones nativas móviles.
+
+
 
 
 
