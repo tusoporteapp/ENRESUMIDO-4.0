@@ -172,6 +172,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Al cambiar a cualquier pestaña (*Ajustes*, *Explorar*, *Favoritos*, etc.), la vista siempre inicia de inmediato en la parte superior sin animaciones de desplazamiento ascendente.
   - Al volver a pulsar la pestaña activa, se conserva la opción de subir suavemente hasta el encabezado.
 
+### ✨ [2026-08-26] - Versión 4.0.15: Simplificación de Ajustes y Sincronización 100% Silenciosa en Segundo Plano
+- **🧹 Eliminada Tarjeta "Catálogo & RSS" en Ajustes**:
+  - Toda la ingesta y verificación de novedades se ejecuta de forma 100% transparente y automática en segundo plano (*Edge Background Sync*).
+  - La interfaz de Ajustes queda más limpia, enfocada en Tema, Alertas, Offline y Reconocimiento al Creador Miguel E. Heredia (@migocreativo).
+
+
 
 
 
