@@ -187,6 +187,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Eliminadas las llamadas de sincronización obligatorias en el montaje inicial y al cambiar de pestaña.
   - Implementado guardián inteligente con cooldown de 12 horas (`STORAGE_KEY_LAST_SYNC_TIMESTAMP`), cargando instantáneamente desde el almacenamiento local sin consumir cuota de Cloudflare.
 
+### ✨ [2026-08-26] - Versión 4.0.18: Actualización Automática Silenciosa de Versiones Antiguas (Service Worker & Cache Purge)
+- **🔄 Auto-Actualización Proactiva y Segura**:
+  - Actualizado el Service Worker a `enresumido-v4.0.17` con purga automática total de cachés obsoletas y reclamo de clientes inmediato (`skipWaiting` + `clients.claim`).
+  - Agregado chequeo proactivo de nuevas versiones en cada carga (`reg.update()`), garantizando que cualquier usuario con versión antigua reciba la versión más reciente, carátulas WebP e icono oficial automáticamente.
+
+
 
 
 
