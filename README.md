@@ -112,6 +112,18 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Eliminados todos los hashes y archivos obsoletos acumulados en `assets/`, dejando el directorio de salida 100% limpio y sin duplicados.
   - Incrementada la versión del Service Worker a `enresumido-v4.0.5` para forzar la purga de cachés viejas en todos los dispositivos.
 
+### ✨ [2026-08-26] - Versión 4.0.6: Diseño Responsive para Escritorio/PC, Pestaña Ajustes en Página y Descargas Limpias
+- **🖥️ Diseño 100% Responsive para Pantallas Grandes / PC**:
+  - El contenedor principal y el header ahora se expanden fluidamente (`max-w-7xl px-4 sm:px-6 lg:px-8`), eliminando las bandas negras laterales en monitores y tablets.
+  - Las cuadrículas de resúmenes (`Explorar`, `Favoritos`, `Historial`, `Descargas`) se adaptan inteligentemente de 2 a 6 columnas (`grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6`).
+- **⚙️ Pestaña Nativa de Ajustes (`SettingsView.tsx`)**:
+  - Ajustes ahora se renderiza como una página de navegación completa e integrada (igual que Favoritos e Historial) en lugar de una ventana modal emergente.
+  - Diseño modular con tarjetas para Tema, Notificaciones Push con prueba, Reproducción continua, Almacenamiento Offline y Sincronización RSS.
+- **🎧 UI de Descargas Limpia y sin Redundancias**:
+  - Eliminado el banner flotante superior durante la descarga de audios.
+  - El progreso se muestra exclusivamente de forma elegante en el anillo SVG de la carátula, en la barra inferior de la tarjeta y en el botón de descarga.
+
+
 
 
 
