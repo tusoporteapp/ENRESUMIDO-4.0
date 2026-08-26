@@ -1,66 +1,72 @@
-{
-  "name": "EnResumido - Audio Resúmenes",
-  "short_name": "EnResumido",
-  "description": "Audio resúmenes de libros y artículos para mentes ocupadas.",
-  "start_url": "/",
-  "id": "/",
-  "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
-  "background_color": "#09090b",
-  "theme_color": "#09090b",
-  "orientation": "portrait",
-  "scope": "/",
-  "categories": ["books", "education", "entertainment", "productivity", "news"],
-  "lang": "es",
-  "dir": "ltr",
-  "icons": [
+﻿{
+  name: EnResumido - Audio Resúmenes,
+  short_name: EnResumido,
+  description: Ideas clave y audio resúmenes de libros y artículos para mentes ocupadas.,
+  start_url: /,
+  id: /,
+  display: standalone,
+  display_override: [window-controls-overlay, standalone, minimal-ui],
+  background_color: #09090b,
+  theme_color: #7c3aed,
+  orientation: portrait,
+  scope: /,
+  categories: [books, education, entertainment, productivity, news],
+  lang: es,
+  dir: ltr,
+  icons: [
     {
-      "src": "/pwa-192.svg",
-      "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "any"
+      src: /favicon.svg,
+      sizes: 64x64 48x48 32x32 16x16,
+      type: image/svg+xml,
+      purpose: any
     },
     {
-      "src": "/pwa-512.svg",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any"
+      src: /pwa-192.svg,
+      sizes: 192x192,
+      type: image/svg+xml,
+      purpose: any
     },
     {
-      "src": "/pwa-maskable.svg",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "maskable"
+      src: /pwa-512.svg,
+      sizes: 512x512,
+      type: image/svg+xml,
+      purpose: any
+    },
+    {
+      src: /pwa-maskable.svg,
+      sizes: 512x512,
+      type: image/svg+xml,
+      purpose: maskable
     }
   ],
-  "shortcuts": [
+  shortcuts: [
     {
-      "name": "Explorar",
-      "short_name": "Explorar",
-      "description": "Ver todos los audio resúmenes",
-      "url": "/?tab=explore",
-      "icons": [{ "src": "/pwa-192.svg", "sizes": "192x192" }]
+      name: Explorar,
+      short_name: Explorar,
+      description: Ver todos los audio resúmenes,
+      url: /?tab=explore,
+      icons: [{ src: /pwa-192.svg, sizes: 192x192, type: image/svg+xml }]
     },
     {
-      "name": "Historial",
-      "short_name": "Historial",
-      "description": "Audios escuchados recientemente",
-      "url": "/?tab=history",
-      "icons": [{ "src": "/pwa-192.svg", "sizes": "192x192" }]
+      name: Historial,
+      short_name: Historial,
+      description: Audios escuchados recientemente,
+      url: /?tab=history,
+      icons: [{ src: /pwa-192.svg, sizes: 192x192, type: image/svg+xml }]
     },
     {
-      "name": "Favoritos",
-      "short_name": "Favoritos",
-      "description": "Tus resúmenes guardados",
-      "url": "/?tab=favorites",
-      "icons": [{ "src": "/pwa-192.svg", "sizes": "192x192" }]
+      name: Favoritos,
+      short_name: Favoritos,
+      description: Tus resúmenes guardados,
+      url: /?tab=favorites,
+      icons: [{ src: /pwa-192.svg, sizes: 192x192, type: image/svg+xml }]
     },
     {
-      "name": "Descargas",
-      "short_name": "Descargas",
-      "description": "Escuchar resúmenes sin internet",
-      "url": "/?tab=downloads",
-      "icons": [{ "src": "/pwa-192.svg", "sizes": "192x192" }]
+      name: Descargas,
+      short_name: Descargas,
+      description: Escuchar resúmenes sin internet,
+      url: /?tab=downloads,
+      icons: [{ src: /pwa-192.svg, sizes: 192x192, type: image/svg+xml }]
     }
   ]
 }

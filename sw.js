@@ -1,56 +1,64 @@
-const CACHE_NAME = "enresumido-v2026-1";
+﻿const CACHE_NAME = 'enresumido-v4.0.1';
 const STATIC_ASSETS = [
-  "/",
-  "/index.html",
-  "/manifest.webmanifest",
-  "/pwa-192.svg",
-  "/pwa-512.svg",
-  "/pwa-maskable.svg"
+  '/',
+  '/index.html',
+  '/manifest.webmanifest',
+  '/favicon.svg',
+  '/pwa-192.svg',
+  '/pwa-512.svg',
+  '/pwa-maskable.svg'
 ];
 
-// Install Event
-self.addEventListener("install", (event) => {
+// Install Event: Precaching core shell
+self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(STATIC_ASSETS).catch((err) => {
-        console.warn("ServiceWorker pre-cache warning:", err);
+        console.warn('[SW] Pre-cache warning:', err);
       });
     })
   );
   self.skipWaiting();
 });
 
-// Activate Event
-self.addEventListener("activate", (event) => {
+// Activate Event: Purge old caches and logos
+self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
         keys
           .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
+          .map((key) => {
+            console.log('[SW] Deleting obsolete cache:', key);
+            return caches.delete(key);
+          })
       );
     })
   );
   self.clients.claim();
 });
 
-// Fetch Event
-self.addEventListener("fetch", (event) => {
+// Fetch Event: Multi-tier offline caching strategy
+self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
 
-  // Skip non-GET requests and chrome-extension / non-http requests
-  if (request.method !== "GET" || !url.protocol.startsWith("http")) {
+  // Skip non-GET requests and non-http protocols (e.g. chrome-extension://)
+  if (request.method !== 'GET' || !url.protocol.startsWith('http')) {
     return;
   }
 
-  // Audio stream requests (let browser stream or IndexedDB handle)
-  if (request.url.includes(".mp3") || request.url.includes("anchor.fm") || request.headers.get("range")) {
+  // Audio streams: bypass SW caching, delegate to IndexedDB (offlineStorage) or native audio streaming
+  if (
+    request.url.includes('.mp3') ||
+    request.url.includes('anchor.fm') ||
+    request.headers.get('range')
+  ) {
     return;
   }
 
-  // HTML navigation requests -> Network First with offline fallback
-  if (request.mode === "navigate") {
+  // 1. HTML Navigation Requests -> Network First with Offline Cache Fallback
+  if (request.mode === 'navigate') {
     event.respondWith(
       fetch(request)
         .then((networkResponse) => {
@@ -63,19 +71,22 @@ self.addEventListener("fetch", (event) => {
         .catch(async () => {
           const cached = await caches.match(request);
           if (cached) return cached;
-          const fallback = await caches.match("/index.html");
-          return fallback || new Response("Offline", { status: 503, headers: { "Content-Type": "text/plain" } });
+          const fallback = await caches.match('/index.html');
+          return fallback || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } });
         })
     );
     return;
   }
 
-  // Static Assets / Fonts / Images -> Stale-While-Revalidate
+  // 2. Static Assets, Fonts & External Images -> Stale-While-Revalidate (supports basic, cors, opaque)
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
       const fetchPromise = fetch(request)
         .then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200 && networkResponse.type === "basic") {
+          if (
+            networkResponse &&
+            (networkResponse.status === 200 || networkResponse.type === 'opaque' || networkResponse.type === 'cors')
+          ) {
             const responseToCache = networkResponse.clone();
             caches.open(CACHE_NAME).then((cache) => cache.put(request, responseToCache));
           }
@@ -84,6 +95,64 @@ self.addEventListener("fetch", (event) => {
         .catch(() => cachedResponse);
 
       return cachedResponse || fetchPromise;
+    })
+  );
+});
+
+// ==========================================================
+// PUSH & NOTIFICATION EVENTS
+// ==========================================================
+
+// Handle Notification Click in OS tray / lock screen
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+
+  const episodeId = event.notification.data ? event.notification.data.episodeId : undefined;
+  const targetUrl = (event.notification.data && event.notification.data.url) || (episodeId ? ('/?listen=' + encodeURIComponent(episodeId)) : '/');
+
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
+      for (const client of clientList) {
+        if ('focus' in client) {
+          if (episodeId && 'postMessage' in client) {
+            client.postMessage({ type: 'NAVIGATE_EPISODE', episodeId });
+          }
+          return client.focus();
+        }
+      }
+      if (clients.openWindow) {
+        return clients.openWindow(targetUrl);
+      }
+    })
+  );
+});
+
+// Handle Background Web Push Notifications
+self.addEventListener('push', (event) => {
+  let data = {
+    title: '⚡ Nuevo Resumen en EnResumido',
+    body: 'Hay un nuevo audio resumen disponible. ¡Toca para escucharlo!',
+    icon: '/pwa-192.svg',
+    badge: '/favicon.svg',
+    data: { url: '/' },
+  };
+
+  if (event.data) {
+    try {
+      data = Object.assign(data, event.data.json());
+    } catch {
+      data.body = event.data.text();
+    }
+  }
+
+  event.waitUntil(
+    self.registration.showNotification(data.title, {
+      body: data.body,
+      icon: data.icon || '/pwa-192.svg',
+      badge: data.badge || '/favicon.svg',
+      tag: data.tag || 'enresumido-push',
+      renotify: true,
+      data: data.data || {},
     })
   );
 });

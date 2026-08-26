@@ -43,3 +43,25 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Directivas de caché optimizadas en `_headers` (inmutable para assets, no-cache para service worker).
 - **Accesibilidad & Modales UI/UX**:
   - Cierre con tecla `Escape`, click en el fondo desenfocado y bloqueo de scroll en todos los modales (`NotesDrawer`, `SettingsModal`, `AudioCompletionModal`).
+### ✨ [2026-08-26] - Versión 4.0.1: Alertas Push Nativas, Modo Sistema Auto, WebP y Logotipo Oficial
+- **🔔 Alertas de Nuevos Resúmenes & Notificaciones Push**:
+  - Implementado despachador asíncrono dispatchNativeNotification compatible con ServiceWorkerRegistration.showNotification() (solucionando el error Illegal constructor en Android Chromium e iOS WebKit Standalone).
+  - Escucha activa del evento notificationclick en sw.js y conmutación automática de la app al resumen seleccionado (NAVIGATE_EPISODE).
+  - Botón Probar Push Ahora activo inmediatamente con retroalimentación Toast y vibración háptica (triggerHaptic).
+  - Tarjeta de toggle con feedback de permisos (granted, denied, default) e instrucción visual para usuarios de iOS Safari.
+- **🎨 Tema Predeterminado en Modo Automático (Sistema)**:
+  - Configurado theme: 'system' por defecto tanto en el script síncrono inline de index.html como en DEFAULT_SETTINGS de React.
+  - La aplicación detecta instantáneamente las preferencias del sistema operativo (prefers-color-scheme) sin parpadeo blanco (FOUC) y permite cambiar a Claro u Oscuro persistiendo la elección.
+- **💜 Identidad Visual & Logotipo Oficial PWA**:
+  - Creado favicon.svg con la silueta de libro y ondas de audio en gradiente púrpura/violeta (#7c3aed).
+  - Rediseñados los iconos pwa-192.svg, pwa-512.svg y pwa-maskable.svg con la paleta oficial y tipografía moderna.
+  - Incrementada la versión de caché del Service Worker a enresumido-v4.0.1 para purgar automáticamente cualquier caché o logotipo obsoleto en enresumido.com.
+- **📦 Almacenamiento Sandboxed Offline (IndexedDB)**:
+  - Los audios se descargan en la base de datos interna privada de la PWA (idb-keyval) sin exponer archivos .mp3 sueltos en la carpeta de descargas del teléfono.
+  - Fallback con proxy de stream ante restricciones CORS y verificación de cuota persistente (navigator.storage.persist()).
+- **🖼️ Optimización de Carátulas a WebP**:
+  - Incorporado formato WebP automático en todas las imágenes y carátulas de categorías.
+  - Creada Cloudflare Pages Function /api/image-optimizer con cabeceras Cache-Control: immutable.
+- **🌐 Configuración de Producción para enresumido.com**:
+  - Encabezados de seguridad HTTP estrictos (HSTS max-age=31536000, CORS, Permissions-Policy, X-Frame-Options).
+  - Redirección canónica 301 de www.enresumido.com a enresumido.com y compatibilidad SPA 100%.

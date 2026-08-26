@@ -13,16 +13,17 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="EnResumido" />
     <meta name="application-name" content="EnResumido" />
-    <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#7c3aed" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#7c3aed" media="(prefers-color-scheme: light)" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- iOS & PWA Icons -->
-    <link rel="icon" type="image/svg+xml" href="/pwa-192.svg" />
+    <!-- Browser Favicons & iOS PWA Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" sizes="192x192" href="/pwa-192.svg" />
     <link rel="apple-touch-icon" href="/pwa-192.svg" />
     <link rel="apple-touch-icon" sizes="192x192" href="/pwa-192.svg" />
     <link rel="apple-touch-icon" sizes="512x512" href="/pwa-512.svg" />
-    <link rel="mask-icon" href="/pwa-maskable.svg" color="#09090b" />
+    <link rel="mask-icon" href="/pwa-maskable.svg" color="#7c3aed" />
     <meta property="og:title" content="EnResumido - Audio Resúmenes" />
     <meta property="og:description" content="Ideas clave de libros y artículos populares para mentes ocupadas." />
     <meta property="og:type" content="website" />
@@ -35,7 +36,7 @@
         try {
           const saved = localStorage.getItem('enresumido_app_settings_v2026') || localStorage.getItem('enresumido_settings_v2') || '{}';
           const settings = JSON.parse(saved);
-          const theme = settings.theme || 'dark';
+          const theme = settings.theme || 'system';
           const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
           const root = document.documentElement;
           if (isDark) {
@@ -50,8 +51,8 @@
         } catch (e) {}
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-B7JKsxKr.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CrVWGKeb.css">
+    <script type="module" crossorigin src="/assets/index-Bp1VZZZ9.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Byn4lEKO.css">
   </head>
   <body class="bg-zinc-100 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 selection:bg-zinc-900 selection:text-zinc-100 dark:selection:bg-zinc-100 dark:selection:text-zinc-900 transition-colors">
     <div id="root"></div>
