@@ -192,6 +192,13 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Actualizado el Service Worker a `enresumido-v4.0.17` con purga automática total de cachés obsoletas y reclamo de clientes inmediato (`skipWaiting` + `clients.claim`).
   - Agregado chequeo proactivo de nuevas versiones en cada carga (`reg.update()`), garantizando que cualquier usuario con versión antigua reciba la versión más reciente, carátulas WebP e icono oficial automáticamente.
 
+### ✨ [2026-08-26] - Versión 4.0.19: Desbloqueo y Aceleración de Scroll a 60 FPS en Android y Dispositivos de Recursos Moderados
+- **🏎️ Optimización Extrema del Hilo de Compositor (Motorola / Android)**:
+  - Eliminados listeners de toque no pasivos (`passive: false`) que bloqueaban el hilo de desplazamiento en Android.
+  - Implementado `content-visibility: auto` y capas compuestas aceleradas por GPU (`gpu-layer`, `contain: layout style paint`).
+  - Optimización de re-renderizado con `React.memo` y simplificación de capas gráficas en `EpisodeListItem`.
+
+
 
 
 
