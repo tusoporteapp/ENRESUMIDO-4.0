@@ -129,6 +129,13 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - El dock inferior ahora abarca el 100% del ancho de la pantalla (`w-full fixed bottom-0 left-0 right-0`) con `backdrop-blur-xl` y `border-t`, igual que el encabezado superior.
   - La distribución interna de las 5 pestañas de navegación y los controles del mini reproductor se alinea armónicamente con el contenedor `max-w-7xl`.
 
+### ✨ [2026-08-26] - Versión 4.0.8: Actualización Inmediata PWA Móvil & Purga Determinística de Caché
+- **📲 Cache-Busting y Forzado de Actualización Inmediata en PWA**:
+  - Generación de hashes únicos determinísticos en Vite con plugin de limpieza automática `clean-github-assets`.
+  - Service Worker actualizado a `enresumido-v4.0.8` para que cualquier iPhone o Android en modo PWA descargue al instante las nuevas vistas sin quedar atrapado en cachés antiguas.
+  - Verificada la navegación 100% fluida a la página nativa de Ajustes (`SettingsView.tsx`) en teléfonos móviles y modo PWA standalone.
+
+
 
 
 
