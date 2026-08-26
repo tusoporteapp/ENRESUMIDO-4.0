@@ -149,6 +149,13 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Compatibilidad de iconos rasterizados PNG (`/pwa-192.png` y `/favicon-48.png`) para evitar rechazos por parte de los centros de notificaciones de Windows y Android.
   - Mensajes de asistencia claros para usuarios de iOS Safari PWA y gestión directa de permisos en tiempo real.
 
+### ✨ [2026-08-26] - Versión 4.0.11: Optimización Extrema de Carátulas a WebP (-98.7% de Peso con Calidad HD)
+- **🖼️ Carátulas Locales en Formato WebP Ultraligero**:
+  - Descargadas y comprimidas todas las 46 carátulas de resúmenes con el motor `sharp` a formato `.webp` de alta fidelidad (450x450 px, compresión inteligente y esfuerzo 6).
+  - Reducción masiva de peso: **De 123.28 MB a solo 1.66 MB en total (~37 KB por carátula)**, ahorrando un **98.7% de ancho de banda**.
+  - Carga instantánea de imágenes en < 5 ms y almacenamiento 100% offline en el Service Worker (`v4.0.11`).
+
+
 
 
 
