@@ -1,12 +1,18 @@
-const CACHE_NAME = 'enresumido-v4.0.11';
+const CACHE_NAME = 'enresumido-v4.0.12';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
   '/favicon.png',
   '/favicon-48.png',
+  '/favicon-16.png',
   '/favicon.svg',
   '/apple-touch-icon.png',
+  '/apple-touch-icon-180.png',
+  '/apple-touch-icon-precomposed.png',
+  '/apple-touch-icon-167.png',
+  '/apple-touch-icon-152.png',
+  '/apple-touch-icon-120.png',
   '/pwa-192.png',
   '/pwa-512.png',
   '/pwa-maskable.png',

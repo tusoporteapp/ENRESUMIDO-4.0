@@ -155,6 +155,13 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Reducción masiva de peso: **De 123.28 MB a solo 1.66 MB en total (~37 KB por carátula)**, ahorrando un **98.7% de ancho de banda**.
   - Carga instantánea de imágenes en < 5 ms y almacenamiento 100% offline en el Service Worker (`v4.0.11`).
 
+### ✨ [2026-08-26] - Versión 4.0.12: Corrección Integral de Icono PWA para iOS Safari (Pantalla de Inicio en iPhone)
+- **📱 Iconos Apple Touch Específicos para iOS**:
+  - Generados iconos PNG en todas las dimensiones requeridas por Apple WebKit (`apple-touch-icon.png`, `apple-touch-icon-180.png`, `apple-touch-icon-precomposed.png`, `apple-touch-icon-167.png`, `apple-touch-icon-152.png`, `apple-touch-icon-120.png`).
+  - Cache-busting explícito (`?v=4.0.12`) en `index.html` para forzar a Safari en iPhone a descartar cualquier caché antigua y tomar el logo minimalista blanco/negro oficial.
+  - Estandarización de `theme-color` y `background_color` en negro puro (`#000000`) en `manifest.webmanifest` e `index.html`.
+
+
 
 
 
