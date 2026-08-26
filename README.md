@@ -203,6 +203,15 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Removido `window-controls-overlay` del `display_override` en `manifest.webmanifest`, eliminando el bloqueo de scroll que causaba Android WebAPK al emular ventanas de escritorio.
   - Unificado el contenedor raíz en `index.css` y eliminado `overflow-x: hidden` anidado en `<main>` para permitir que el motor Chromium de Android propague los gestos táctiles de scroll sin fricción.
 
+### ✨ [2026-08-26] - Versión 4.0.21: Reproductor en Estado Inicial Limpio & Modal de Recomendación Diaria 24h por Categoría
+- **🔇 Inicio con Reproductor Inactivo**:
+  - `currentEpisode` inicia en `null` para que no haya ningún audio cargado por defecto al entrar a la app hasta que el usuario elija reproducir.
+- **🧭 Descubrimiento Diario Dinámico (4 Categorías / 24 Horas)**:
+  - Al abrir la app, se presenta un modal elegante que recomienda exactamente 1 audio de cada categoría (Libro, Documental, Emprendimiento, Película).
+  - Algoritmo inteligente que **nunca repite audios** en rotaciones sucesivas y **excluye audios ya escuchados** por el usuario.
+  - Se renueva automáticamente cada 24 horas y puede reabrirse en cualquier momento desde la pestaña Explorar.
+
+
 
 
 
