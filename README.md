@@ -123,6 +123,13 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Eliminado el banner flotante superior durante la descarga de audios.
   - El progreso se muestra exclusivamente de forma elegante en el anillo SVG de la carátula, en la barra inferior de la tarjeta y en el botón de descarga.
 
+### ✨ [2026-08-26] - Versión 4.0.7: Barra Inferior y Reproductor 100% Edge-to-Edge (Ancho Completo)
+- **📏 Barra Inferior y Mini-Player de Borde a Borde**:
+  - Eliminados los márgenes restrictivos y esquinas redondeadas flotantes de la barra inferior.
+  - El dock inferior ahora abarca el 100% del ancho de la pantalla (`w-full fixed bottom-0 left-0 right-0`) con `backdrop-blur-xl` y `border-t`, igual que el encabezado superior.
+  - La distribución interna de las 5 pestañas de navegación y los controles del mini reproductor se alinea armónicamente con el contenedor `max-w-7xl`.
+
+
 
 
 
