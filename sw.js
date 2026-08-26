@@ -1,9 +1,15 @@
-﻿const CACHE_NAME = 'enresumido-v4.0.1';
+const CACHE_NAME = 'enresumido-v4.0.5';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
+  '/favicon.png',
+  '/favicon-48.png',
   '/favicon.svg',
+  '/apple-touch-icon.png',
+  '/pwa-192.png',
+  '/pwa-512.png',
+  '/pwa-maskable.png',
   '/pwa-192.svg',
   '/pwa-512.svg',
   '/pwa-maskable.svg'

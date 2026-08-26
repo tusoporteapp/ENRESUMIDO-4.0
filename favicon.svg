@@ -1,33 +1,52 @@
-﻿<svg xmlns=http://www.w3.org/2000/svg viewBox=0 0 64 64 width=64 height=64>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <linearGradient id=purpleGrad x1=0% y1=0% x2=100% y2=100%>
-      <stop offset=0% stop-color=#8b5cf6/>
-      <stop offset=50% stop-color=#7c3aed/>
-      <stop offset=100% stop-color=#4f46e5/>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e0836"/>
+      <stop offset="50%" stop-color="#0f051d"/>
+      <stop offset="100%" stop-color="#07020d"/>
     </linearGradient>
-    <linearGradient id=barGrad x1=0% y1=100% x2=0% y2=0%>
-      <stop offset=0% stop-color=#c4b5fd/>
-      <stop offset=100% stop-color=#ffffff/>
+    <linearGradient id="primaryPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
     </linearGradient>
+    <linearGradient id="waveGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+    <radialGradient id="glowRadial" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#6d28d9" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#07020d" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <!-- Background squircle with rich purple/violet gradient -->
-  <rect width=64 height=64 rx=16 fill=#09090b/>
-  <rect x=2 y=2 width=60 height=60 rx=14 fill=url(#purpleGrad)/>
-  <rect x=3 y=3 width=58 height=58 rx=13 fill=#0c0a14 opacity=0.85/>
 
-  <!-- Brand Symbol: Open Book with Sound Waves -->
-  <!-- Left Book Wing -->
-  <path d=M 17 40 C 23 38 29 40 32 43 L 32 23 C 29 20 23 18 17 20 Z fill=#8b5cf6 opacity=0.6/>
-  <!-- Right Book Wing -->
-  <path d=M 47 40 C 41 38 35 40 32 43 L 32 23 C 35 20 41 18 47 20 Z fill=#7c3aed opacity=0.6/>
+  <!-- Solid Background for iOS and PWA -->
+  <rect width="512" height="512" rx="108" fill="url(#bgGrad)"/>
+  <rect x="6" y="6" width="500" height="500" rx="102" fill="none" stroke="url(#primaryPurple)" stroke-width="6" stroke-opacity="0.6"/>
 
-  <!-- Audio Wave Bars (EnResumido Core) -->
-  <g fill=url(#barGrad)>
-    <rect x=18 y=26 width=3 height=12 rx=1.5/>
-    <rect x=23.5 y=21 width=3 height=22 rx=1.5/>
-    <rect x=29 y=16 width=3 height=32 rx=1.5/>
-    <rect x=34.5 y=20 width=3 height=24 rx=1.5/>
-    <rect x=40 y=24 width=3 height=16 rx=1.5/>
-    <rect x=45.5 y=28 width=3 height=8 rx=1.5/>
+  <!-- Glow Ambient -->
+  <circle cx="256" cy="225" r="160" fill="url(#glowRadial)"/>
+
+  <!-- Main Symbol: Book Silhouette + Equalizer Wave Bars -->
+  <g transform="translate(0, -10)">
+    <!-- Open Book Silhouette -->
+    <path d="M 125 315 C 180 298 225 308 256 330 C 287 308 332 298 387 315 L 387 165 C 332 148 287 158 256 180 C 225 158 180 148 125 165 Z" fill="#240c4a" fill-opacity="0.85" stroke="url(#primaryPurple)" stroke-width="6"/>
+
+    <!-- Equalizer Sound Wave Bars -->
+    <g fill="url(#waveGrad)">
+      <rect x="148" y="195" width="20" height="95" rx="10"/>
+      <rect x="184" y="155" width="20" height="175" rx="10"/>
+      <rect x="220" y="120" width="20" height="245" rx="10"/>
+      <rect x="256" y="130" width="20" height="225" rx="10"/>
+      <rect x="292" y="165" width="20" height="155" rx="10"/>
+      <rect x="328" y="205" width="20" height="75" rx="10"/>
+    </g>
   </g>
+
+  <!-- Typography -->
+  <text x="256" y="425" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="6">ENRESUMIDO</text>
+  <text x="256" y="460" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700" fill="#a78bfa" text-anchor="middle" letter-spacing="4">AUDIO RESÚMENES</text>
 </svg>

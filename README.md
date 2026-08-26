@@ -99,5 +99,19 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
 - **🗄️ Esquema Cloudflare D1 Serverless SQL (`schema.sql`)**:
   - Creada la estructura de base de datos relacional para Cloudflare D1 con índices B-Tree e indexación Full-Text Search (FTS5) para consultas instantáneas sobre 60.000+ resúmenes.
 
+### ✨ [2026-08-26] - Versión 4.0.5: Iconos Oficiales PNG para PWA e iOS Safari + Limpieza de Assets
+- **📱 Iconos PNG Nativos para iOS y PWA**:
+  - Generados iconos rasterizados en formato `.png` de alta calidad con el logo oficial EnResumido (fondo púrpura oscuro, libro e indicador de ondas de audio):
+    - `apple-touch-icon.png` (180x180 px) para soporte nativo en Safari iPhone al "Añadir a pantalla de inicio".
+    - `pwa-192.png` y `pwa-512.png` estándar PWA.
+    - `pwa-maskable.png` (512x512 px) con margen seguro para iconos adaptativos de Android.
+    - `favicon.png` (32x32) y `favicon-48.png` (48x48).
+  - Actualizados `index.html` y `manifest.webmanifest` con sintaxis estándar JSON y referencias exclusivas a los archivos `.png`.
+- **🧹 Limpieza y Optimización de Compilación (Cero Redundancia)**:
+  - Configurado Vite con salida determinística (`assets/app.js` y `assets/style.css`).
+  - Eliminados todos los hashes y archivos obsoletos acumulados en `assets/`, dejando el directorio de salida 100% limpio y sin duplicados.
+  - Incrementada la versión del Service Worker a `enresumido-v4.0.5` para forzar la purga de cachés viejas en todos los dispositivos.
+
+
 
 

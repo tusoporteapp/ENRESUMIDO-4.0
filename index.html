@@ -17,15 +17,18 @@
     <meta name="theme-color" content="#7c3aed" media="(prefers-color-scheme: light)" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Browser Favicons & iOS PWA Icons -->
+    <!-- Browser Favicons & iOS PWA Icons (Standard PNG & High-Res SVG) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/svg+xml" sizes="192x192" href="/pwa-192.svg" />
-    <link rel="apple-touch-icon" href="/pwa-192.svg" />
-    <link rel="apple-touch-icon" sizes="192x192" href="/pwa-192.svg" />
-    <link rel="apple-touch-icon" sizes="512x512" href="/pwa-512.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/pwa-192.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/pwa-512.png" />
     <link rel="mask-icon" href="/pwa-maskable.svg" color="#7c3aed" />
     <meta property="og:title" content="EnResumido - Audio Resúmenes" />
     <meta property="og:description" content="Ideas clave de libros y artículos populares para mentes ocupadas." />
+    <meta property="og:image" content="https://enresumido.com/pwa-512.png" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,8 +54,8 @@
         } catch (e) {}
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-B0qNZAGF.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-UPTWQTWW.css">
+    <script type="module" crossorigin src="/assets/app.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/style.css">
   </head>
   <body class="bg-zinc-100 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 selection:bg-zinc-900 selection:text-zinc-100 dark:selection:bg-zinc-100 dark:selection:text-zinc-900 transition-colors">
     <div id="root"></div>
