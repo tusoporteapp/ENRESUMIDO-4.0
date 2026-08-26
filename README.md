@@ -65,3 +65,17 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
 - **🌐 Configuración de Producción para enresumido.com**:
   - Encabezados de seguridad HTTP estrictos (HSTS max-age=31536000, CORS, Permissions-Policy, X-Frame-Options).
   - Redirección canónica 301 de www.enresumido.com a enresumido.com y compatibilidad SPA 100%.
+
+### ✨ [2026-08-26] - Versión 4.0.2: Sistema Visual de Descarga en Vivo con Porcentaje (%) y Streaming de Chunks
+- **📊 Indicador de Progreso en Tiempo Real (%)**:
+  - Implementado lector por bloques en flujo continuo (`ReadableStream` & `response.body.getReader()`) en `saveAudioOffline` dentro de `offlineStorage.ts`.
+  - Reporte continuo de porcentaje exacto calculado dinámicamente según los bytes transferidos y la cabecera `Content-Length`.
+- **🎯 Experiencia Visual en Tarjetas de Episodios (`EpisodeListItem.tsx`)**:
+  - Anillo de progreso circular animado en SVG superpuesto en la carátula con el porcentaje en vivo (`45%`, `78%`, `100%`).
+  - Barra de progreso horizontal reactiva en la parte inferior de la carátula.
+  - Botón de descarga con pill numérico interactivo y feedback háptico al finalizar.
+- **📱 Reproductor Expandido (`FullPlayerModal.tsx`)**:
+  - Botón de descarga con barra de llenado interactiva de fondo y etiqueta de texto reactiva `"Descargando 65%"`.
+- **🚀 Banner Flotante Global de Descargas**:
+  - Notificación superior flotante con nombre del resumen, barra de progreso en gradiente ámbar, porcentaje en vivo y confirmación de guardado en sandbox offline.
+
