@@ -135,6 +135,15 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Service Worker actualizado a `enresumido-v4.0.8` para que cualquier iPhone o Android en modo PWA descargue al instante las nuevas vistas sin quedar atrapado en cachés antiguas.
   - Verificada la navegación 100% fluida a la página nativa de Ajustes (`SettingsView.tsx`) en teléfonos móviles y modo PWA standalone.
 
+### ✨ [2026-08-26] - Versión 4.0.9: Logo Oficial Minimalista Blanco/Negro y Créditos al Creador Miguel E. Heredia (MigoCreativo)
+- **🖤 Identidad Visual Minimalista Oficial (Fondo Negro + Letras y Ondas Blancas)**:
+  - Generados todos los iconos nativos para PWA, Safari iPhone y Android (`apple-touch-icon.png`, `pwa-512.png`, `pwa-192.png`, `pwa-maskable.png`, `favicon.png`, `favicon.svg`) con el diseño minimalista de fondo negro puro, tipografía **ER** en blanco y barras ecualizadoras de ondas de audio debajo.
+  - Integrado el nuevo emblema en el encabezado de la aplicación (`Header.tsx`) y en la marca institucional.
+- **🌟 Sección Destacada del Creador en Ajustes (`SettingsView.tsx`)**:
+  - Agregada tarjeta especial de agradecimiento y reconocimiento a **Miguel E. Heredia (MigoCreativo)**, creador, diseñador y desarrollador principal de EnResumido.
+  - Enlaces directos a sus canales oficiales en redes sociales (**@migocreativo** en Instagram, YouTube, X/Twitter y TikTok).
+
+
 
 
 
