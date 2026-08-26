@@ -79,3 +79,13 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
 - **🚀 Banner Flotante Global de Descargas**:
   - Notificación superior flotante con nombre del resumen, barra de progreso en gradiente ámbar, porcentaje en vivo y confirmación de guardado en sandbox offline.
 
+### ✨ [2026-08-26] - Versión 4.0.3: Persistencia de Vistas y Caché Instantánea de Imágenes en Memoria
+- **⚡ Cero Parpadeo al Cambiar de Pestaña**:
+  - Las pestañas de la aplicación (`Explorar`, `Favoritos`, `Historial`, `Descargas`, `Ajustes`) ahora se mantienen montadas en el DOM con persistencia de estado.
+  - Al cambiar de pestaña y regresar, los elementos del DOM y las imágenes ya decodificadas permanecen en memoria RAM sin destruirse ni volver a solicitarse.
+- **🖼️ Caché en Memoria para Decodificación Inmediata (`LOADED_COVERS_CACHE`)**:
+  - Implementado `LOADED_COVERS_CACHE` a nivel de módulo en `EpisodeListItem.tsx`.
+  - Las carátulas que ya fueron cargadas se renderizan con `loading="eager"` y `decoding="async"`, eliminando el parpadeo de carga perezosa (`loading="lazy"`).
+  - Se preserva la posición exacta de scroll al navegar entre pestañas.
+
+
