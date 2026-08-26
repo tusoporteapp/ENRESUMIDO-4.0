@@ -216,6 +216,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Al abrir el modal de recomendación diaria (o reproductores a pantalla completa), el fondo se bloquea de forma inmediata (`body`/`html` `overflow: hidden`, `touch-action: none`).
   - La lista de tarjetas del modal cuenta con `overscroll-behavior: contain` y `touch-action: pan-y`, asegurando que los deslizamientos táctiles se queden 100% dentro del modal sin mover la vista de Explorar.
 
+### ✨ [2026-08-26] - Versión 4.0.23: Reproducción 100% Real y Autónoma de Audios Descargados en Modo Offline
+- **🎧 Enlace Directo a Blobs en IndexedDB**:
+  - Se vinculó el reproductor `<audio>` para precargar y asignar de inmediato el Blob URL local de IndexedDB (`blob:https://...`) cuando se reproduce cualquier audio descargado sin conexión.
+  - Se optimizó `saveAudioOffline` para descargar el flujo binario completo del audio evitando fallbacks mudos, permitiendo escuchar libros completos con modo avión, sin datos ni WiFi activados.
+
+
 
 
 
