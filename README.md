@@ -221,6 +221,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Se vinculó el reproductor `<audio>` para precargar y asignar de inmediato el Blob URL local de IndexedDB (`blob:https://...`) cuando se reproduce cualquier audio descargado sin conexión.
   - Se optimizó `saveAudioOffline` para descargar el flujo binario completo del audio evitando fallbacks mudos, permitiendo escuchar libros completos con modo avión, sin datos ni WiFi activados.
 
+### ✨ [2026-08-26] - Versión 4.0.24: Indicador Dinámico y Sincronizado de Versión en la Aplicación
+- **🏷️ Badge de Versión Automatizado**:
+  - Se centralizó la versión del software en `src/version.ts` y se vinculó directamente a la tarjeta de autor y pie de ajustes en `SettingsView.tsx` y `SettingsModal.tsx`.
+  - Ahora la interfaz muestra con total precisión la versión activa compilada (**Versión: v4.0.24**) garantizando transparencia de actualización en tiempo real para todos los usuarios.
+
+
 
 
 
