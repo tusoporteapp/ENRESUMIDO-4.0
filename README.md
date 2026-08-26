@@ -198,6 +198,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Implementado `content-visibility: auto` y capas compuestas aceleradas por GPU (`gpu-layer`, `contain: layout style paint`).
   - Optimización de re-renderizado con `React.memo` y simplificación de capas gráficas en `EpisodeListItem`.
 
+### ✨ [2026-08-26] - Versión 4.0.20: Corrección Definitiva de Scroll en Modo PWA Instalada (Android WebAPK)
+- **📱 Desbloqueo de Viewport en PWA Standalone**:
+  - Removido `window-controls-overlay` del `display_override` en `manifest.webmanifest`, eliminando el bloqueo de scroll que causaba Android WebAPK al emular ventanas de escritorio.
+  - Unificado el contenedor raíz en `index.css` y eliminado `overflow-x: hidden` anidado en `<main>` para permitir que el motor Chromium de Android propague los gestos táctiles de scroll sin fricción.
+
+
 
 
 
