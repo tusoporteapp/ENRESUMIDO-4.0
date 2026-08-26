@@ -143,6 +143,13 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Agregada tarjeta especial de agradecimiento y reconocimiento a **Miguel E. Heredia (MigoCreativo)**, creador, diseñador y desarrollador principal de EnResumido.
   - Enlaces directos a sus canales oficiales en redes sociales (**@migocreativo** en Instagram, YouTube, X/Twitter y TikTok).
 
+### ✨ [2026-08-26] - Versión 4.0.10: Notificaciones Push Resilientes, Feedback Acústico Web Audio y Compatibilidad Multi-Plataforma
+- **🔔 Disparo de Notificaciones Nativas y Tono de Alerta Acústico**:
+  - Integrado sintetizador de tono de notificación acústico (*Web Audio Chime*) para brindar feedback sonoro y háptico inmediato al activar y probar alertas.
+  - Compatibilidad de iconos rasterizados PNG (`/pwa-192.png` y `/favicon-48.png`) para evitar rechazos por parte de los centros de notificaciones de Windows y Android.
+  - Mensajes de asistencia claros para usuarios de iOS Safari PWA y gestión directa de permisos en tiempo real.
+
+
 
 
 

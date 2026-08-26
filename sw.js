@@ -138,8 +138,8 @@ self.addEventListener('push', (event) => {
   let data = {
     title: '⚡ Nuevo Resumen en EnResumido',
     body: 'Hay un nuevo audio resumen disponible. ¡Toca para escucharlo!',
-    icon: '/pwa-192.svg',
-    badge: '/favicon.svg',
+    icon: '/pwa-192.png',
+    badge: '/favicon-48.png',
     data: { url: '/' },
   };
 
@@ -154,8 +154,8 @@ self.addEventListener('push', (event) => {
   event.waitUntil(
     self.registration.showNotification(data.title, {
       body: data.body,
-      icon: data.icon || '/pwa-192.svg',
-      badge: data.badge || '/favicon.svg',
+      icon: data.icon || '/pwa-192.png',
+      badge: data.badge || '/favicon-48.png',
       tag: data.tag || 'enresumido-push',
       renotify: true,
       data: data.data || {},
