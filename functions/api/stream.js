@@ -4,6 +4,10 @@ const ALLOWED_HOSTS = [
   'd3ctxlq1ktw2nl.cloudfront.net',
   'cloudfront.net',
   'spotifycdn.com',
+  'spotify.com',
+  'scdn.co',
+  'podcasters.spotify.com',
+  'akamaized.net',
   'soundhelix.com',
   'enresumido.com',
   'images.unsplash.com',
@@ -121,9 +125,12 @@ async function handleAudioProxy(context, isHeadRequest) {
       outHeaders.set('Cache-Control', 'public, max-age=86400, s-maxage=604800');
     }
 
-    return new Response(isHeadRequest ? null : upstreamResponse.body, {
+    const nullBodyStatus = [204, 205, 304];
+    const hasNoBody = isHeadRequest || nullBodyStatus.includes(upstreamResponse.status);
+
+    return new Response(hasNoBody ? null : upstreamResponse.body, {
       status: upstreamResponse.status,
-      statusText: upstreamResponse.statusText,
+      statusText: upstreamResponse.statusText || undefined,
       headers: outHeaders,
     });
   } catch (err) {

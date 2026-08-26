@@ -24,3 +24,22 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - `/api/catalog`: API de catálogo de episodios con paginación y búsqueda ultra rápida.
   - `/api/stream`: Proxy de streaming de audio.
 - **Capacidades Habilitadas**: Creación, edición, consulta y despliegue directo tanto por Git como por CLI de Cloudflare.
+
+### 🛡️ [2026-08-26] - Auditoría Exhaustiva de 10 Agentes y Optimizaciones Globales
+- **Audio & Offline Playback**:
+  - Enrutamiento inteligente a blobs de IndexedDB (`idb-keyval`) para episodios descargados con liberación de memoria (`URL.revokeObjectURL`).
+  - Sincronización precisa con la API nativa **MediaSession** (Lock Screen / Notificaciones iOS y Android) incluyendo tasa de velocidad real (`playbackRate`).
+  - Temporizador de apagado (*Sleep Timer*) resistente y verificado por marca de tiempo absoluta en segundo plano.
+  - Solicitud automática de almacenamiento persistente (`navigator.storage.persist()`).
+- **Motor de Recomendaciones y Afinidades**:
+  - Algoritmo de afinidad mejorado con pesos dinámicos por categorías, impulso de novedad de 30 días y filtrado del elemento actualmente en reproducción.
+  - Insignia de motivo (*Reason Badge*) en las tarjetas de recomendación con indicador interactivo de reproducción.
+- **Búsqueda & Normalización Diacrítica**:
+  - Algoritmo NFD enriquecido con eliminación de signos de puntuación y categorización resiliente de títulos.
+  - Limpieza de parámetros de búsqueda en deep links (`?listen=ID`) evitando reaperturas involuntarias del reproductor.
+- **Cloudflare Edge Functions & Proxy**:
+  - Soporte de rutas duales `/api/rss` y `/api/rss-proxy`.
+  - Whitelist ampliada de CDNs de Spotify (`*.scdn.co`, `podcasters.spotify.com`, `*.akamaized.net`) en `/api/stream` con manejo estricto de códigos 204/304.
+  - Directivas de caché optimizadas en `_headers` (inmutable para assets, no-cache para service worker).
+- **Accesibilidad & Modales UI/UX**:
+  - Cierre con tecla `Escape`, click en el fondo desenfocado y bloqueo de scroll en todos los modales (`NotesDrawer`, `SettingsModal`, `AudioCompletionModal`).
