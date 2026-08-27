@@ -291,6 +291,10 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
 ### ✨ [2026-08-27] - Versión 4.0.37: Eliminación de Padding Inferior Sobrante (Zero Empty Space)
 - **📏 Ajuste Compacto al Borde**: Se eliminó el padding redundante de la caja exterior del menú (`safe-bottom` eliminado del contenedor padre), dejando la barra de navegación compacta, con sus botones perfectamente centrados y pegados al borde inferior sin ningún espacio sobrante debajo.
 
+### ✨ [2026-08-27] - Versión 4.0.38: Reproductor Completo 100% Pantalla Completa Inmersivo
+- **📱 Experiencia Full Screen Total**: El reproductor grande ahora se expande cubriendo el 100% de la pantalla del dispositivo (`w-full h-full inset-0`), con carátula fluida responsiva, tipografía clara y controles optimizados sin márgenes artificiales en móviles.
+
+
 
 
 
