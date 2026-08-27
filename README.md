@@ -256,6 +256,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Ahora `#root` ocupa el 100% exacto de la altura del viewport físico (`height: 100%`), quedando el dock inferior perfectamente pegado al ras del cristal de la pantalla.
   - Se calibró el espaciado de seguridad inferior (`env(safe-area-inset-bottom)`) para que los iconos queden centrados y el fondo cubra completamente el área del indicador de inicio de iOS.
 
+### ✨ [2026-08-27] - Versión 4.0.30: Extensión Integral del Fondo del Dock hasta el Borde Físico
+- **🎨 Fondo Continuo sin Espacio Gris**:
+  - Se configuró `min-height: 0` en el contenedor flex central `.app-scroll-container` (eliminando `height: 100%` que empujaba el layout).
+  - Se aplicó `pb-[env(safe-area-inset-bottom,0px)]` directamente sobre el contenedor del dock blanco/oscuro, logrando que el color de fondo del menú se extienda uniformemente hasta el borde absoluto inferior de la pantalla sin dejar visible el fondo gris de la app.
+
+
 
 
 
