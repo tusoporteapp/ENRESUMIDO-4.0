@@ -243,6 +243,14 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Se eliminó `backdrop-filter` (`backdrop-blur-*`) de la cabecera superior y del dock inferior, reemplazándolo por fondos opacos puros de alto contraste (`bg-white` / `bg-zinc-950`). Esto soluciona el bug de WebKit en iOS y Android donde las capas con filtro de desenfoque quedaban congeladas a media pantalla tras abrir la hoja de compartir nativa.
   - Se suprimieron listeners intrusivos de `visualViewport.scroll` que producían bucles de layout forzado durante el desplazamiento del usuario.
 
+### ✨ [2026-08-27] - Versión 4.0.28: Arquitectura PWA Nativa "App Shell" (Zero Fixed Bugs)
+- **💎 Arquitectura App Shell Rígida de Grado Nativo**:
+  - Se transformó la aplicación al patrón universal de aplicaciones móviles **App Shell** (`html, body { overflow: hidden; position: fixed; inset: 0; }`).
+  - La ventana global `window` ya no hace scroll, haciendo **físicamente imposible** que el menú inferior se desplace al centro o se desancle.
+  - El contenido de la app ahora se desplaza en su propio contenedor aislado `<main className="app-scroll-container">` con aceleración por hardware a 120Hz (`-webkit-overflow-scrolling: touch; overscroll-behavior-y: contain`).
+  - El menú inferior es ahora un pie de página flex (`shrink-0`) apoyado sólidamente en la base de la pantalla, idéntico a la arquitectura utilizada por Spotify, Instagram y YouTube Music.
+
+
 
 
 
