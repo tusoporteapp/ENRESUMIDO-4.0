@@ -261,6 +261,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Se configuró `min-height: 0` en el contenedor flex central `.app-scroll-container` (eliminando `height: 100%` que empujaba el layout).
   - Se aplicó `pb-[env(safe-area-inset-bottom,0px)]` directamente sobre el contenedor del dock blanco/oscuro, logrando que el color de fondo del menú se extienda uniformemente hasta el borde absoluto inferior de la pantalla sin dejar visible el fondo gris de la app.
 
+### ✨ [2026-08-27] - Versión 4.0.31: Fondo Raíz Puro y Auto-Actualización Inmediata en iOS PWA
+- **🍏 Perfeccionamiento en PWA Standalone de Apple**:
+  - Se cambió el fondo del contenedor raíz de la aplicación a blanco puro (`#ffffff` / `#09090b`), asignando el gris claro (`bg-zinc-100`) exclusivamente al área de scroll central. De este modo es físicamente imposible que aparezca una franja gris debajo del dock.
+  - Se incorporó recarga automática inmediata (`controllerchange`) en el Service Worker para que las PWAs instaladas en iPhone descarguen las versiones más recientes al instante sin depender de la caché congelada de iOS.
+
+
 
 
 
