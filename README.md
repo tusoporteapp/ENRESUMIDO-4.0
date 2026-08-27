@@ -288,6 +288,10 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
 - **🛡️ Inmunidad Total al Bug de Compartir**: Se restableció la arquitectura App Shell (`html, body { position: fixed; inset: 0; overflow: hidden; }`) con scroll confinado a `<main>` y dock inferior integrado como pie de columna flex (`shrink-0`).
 - Al no existir desplazamiento del `window`, la invocación nativa de `navigator.share()` (WhatsApp, AirDrop, etc.) no desincroniza las capas de coordenadas de iOS WebKit, permaneciendo el menú inferior 100% inmóvil en la base al hacer scroll.
 
+### ✨ [2026-08-27] - Versión 4.0.37: Eliminación de Padding Inferior Sobrante (Zero Empty Space)
+- **📏 Ajuste Compacto al Borde**: Se eliminó el padding redundante de la caja exterior del menú (`safe-bottom` eliminado del contenedor padre), dejando la barra de navegación compacta, con sus botones perfectamente centrados y pegados al borde inferior sin ningún espacio sobrante debajo.
+
+
 
 
 
