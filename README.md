@@ -232,6 +232,13 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Se blindó el dock inferior con `.bottom-dock-fixed` en GPU Compositing Layer (`transform: translateZ(0)` y `will-change: transform`), eliminando `position: relative` en `body` y reemplazando `overflow-x: hidden` por `overflow-x: clip`.
   - Se agregaron listeners globales a `focus`, `pageshow`, `visibilitychange` y `visualViewport.resize/scroll` para auto-corregir el anclaje físico inferior en iOS Safari, Android Chrome y modo PWA.
 
+### ✨ [2026-08-27] - Versión 4.0.26: Aislamiento Total con React Portals a `document.body`
+- **🚀 Portaling del Dock y Modales a `document.body`**:
+  - Se desacopló el dock inferior y todos los modales (`FullPlayerModal`, `NotesDrawer`, `DailyDiscoveryModal`, `AudioCompletionModal`) del árbol de `#root` mediante `createPortal(..., document.body)`.
+  - Al no tener ancestros flex ni contenedores relativos, el dock inferior queda físicamente fijado al viewport real del navegador y es inmune a cualquier desincronización de scroll o contracción del viewport al compartir.
+  - Se eliminó la mutación de `document.documentElement.style.overflow` en modales para preservar intacto el motor de composición de WebKit en iOS.
+
+
 
 
 
