@@ -226,6 +226,13 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Se centralizó la versión del software en `src/version.ts` y se vinculó directamente a la tarjeta de autor y pie de ajustes en `SettingsView.tsx` y `SettingsModal.tsx`.
   - Ahora la interfaz muestra con total precisión la versión activa compilada (**Versión: v4.0.24**) garantizando transparencia de actualización en tiempo real para todos los usuarios.
 
+### ✨ [2026-08-27] - Versión 4.0.25: Blindaje y Reconciliación del Menú Inferior Post-Web Share API
+- **🛡️ Anclaje Indestructible del Dock Inferior**:
+  - Se implementó la utilidad `forceViewportLayoutRecalc` que reconcilia síncronamente el `visualViewport`, resetea offsets de scroll residuales y fuerza el reflow tras invocar o cancelar la hoja nativa de compartir (`navigator.share`).
+  - Se blindó el dock inferior con `.bottom-dock-fixed` en GPU Compositing Layer (`transform: translateZ(0)` y `will-change: transform`), eliminando `position: relative` en `body` y reemplazando `overflow-x: hidden` por `overflow-x: clip`.
+  - Se agregaron listeners globales a `focus`, `pageshow`, `visibilitychange` y `visualViewport.resize/scroll` para auto-corregir el anclaje físico inferior en iOS Safari, Android Chrome y modo PWA.
+
+
 
 
 
