@@ -271,6 +271,11 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Se descubrió mediante auditoría multi-agente que la etiqueta HTML `<audio>` al final del árbol de `App.tsx` se renderizaba con altura en bloque por el preflight de CSS, empujando la barra inferior hacia arriba en ~54px.
   - Se aplicó `className="hidden"` y `aria-hidden="true"` al elemento `<audio>`, eliminando al 100% el espacio fantasma y devolviendo el menú inferior a su posición original compacta y pegada al borde.
 
+### ✨ [2026-08-27] - Versión 4.0.33: Calibración Multi-Agente de Safe Areas y Hitbox Táctil
+- **🛡️ Verificación Cruzada de 3 Agentes Especialistas**:
+  - Se restauró la clase `.safe-bottom` (`max(0.5rem, env(safe-area-inset-bottom, 0px))`) en el dock inferior, garantizando un área de apoyo limpia para el Home Indicator de iPhone y un hitbox táctil balanceado de 8px en dispositivos Android.
+
+
 
 
 
