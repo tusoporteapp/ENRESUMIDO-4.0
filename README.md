@@ -238,6 +238,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Al no tener ancestros flex ni contenedores relativos, el dock inferior queda físicamente fijado al viewport real del navegador y es inmune a cualquier desincronización de scroll o contracción del viewport al compartir.
   - Se eliminó la mutación de `document.documentElement.style.overflow` en modales para preservar intacto el motor de composición de WebKit en iOS.
 
+### ✨ [2026-08-27] - Versión 4.0.27: Eliminación de Capas Gráficas Desprendibles (Zero Backdrop Filter)
+- **🛡️ Estabilidad Absoluta en Barras Fijas**:
+  - Se eliminó `backdrop-filter` (`backdrop-blur-*`) de la cabecera superior y del dock inferior, reemplazándolo por fondos opacos puros de alto contraste (`bg-white` / `bg-zinc-950`). Esto soluciona el bug de WebKit en iOS y Android donde las capas con filtro de desenfoque quedaban congeladas a media pantalla tras abrir la hoja de compartir nativa.
+  - Se suprimieron listeners intrusivos de `visualViewport.scroll` que producían bucles de layout forzado durante el desplazamiento del usuario.
+
+
 
 
 
