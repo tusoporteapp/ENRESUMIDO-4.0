@@ -250,6 +250,13 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - El contenido de la app ahora se desplaza en su propio contenedor aislado `<main className="app-scroll-container">` con aceleración por hardware a 120Hz (`-webkit-overflow-scrolling: touch; overscroll-behavior-y: contain`).
   - El menú inferior es ahora un pie de página flex (`shrink-0`) apoyado sólidamente en la base de la pantalla, idéntico a la arquitectura utilizada por Spotify, Instagram y YouTube Music.
 
+### ✨ [2026-08-27] - Versión 4.0.29: Ajuste al Ras del Borde Inferior en iOS (Zero Bottom Gap)
+- **📱 Ajuste Perfecto a la Pantalla de iPhone**:
+  - Se eliminó la unidad `100dvh` que en Safari móvil calculaba una altura menor dentro del contenedor `fixed inset-0`, provocando un espacio vacío debajo de `#root`.
+  - Ahora `#root` ocupa el 100% exacto de la altura del viewport físico (`height: 100%`), quedando el dock inferior perfectamente pegado al ras del cristal de la pantalla.
+  - Se calibró el espaciado de seguridad inferior (`env(safe-area-inset-bottom)`) para que los iconos queden centrados y el fondo cubra completamente el área del indicador de inicio de iOS.
+
+
 
 
 
