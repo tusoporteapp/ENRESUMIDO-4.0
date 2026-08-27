@@ -284,6 +284,11 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
 - **🎵 Auto-Apertura del Reproductor Grande**: Al presionar reproducir en cualquier tarjeta o banner, se despliega automáticamente el reproductor inmersivo a pantalla completa; al cerrarlo/bajarlo, el mini reproductor permanece activo en la barra inferior.
 - **🔗 Botón de Compartir en Tarjetas**: Se añadió el botón de compartir (`Share2`) directamente en cada tarjeta de episodio (Explorar, Favoritos, Historial, Descargas) para compartir enlaces profundos (`?listen=ID`) al instante.
 
+### ✨ [2026-08-27] - Versión 4.0.36: Arquitectura App Shell Pura y Anclaje Físico Inmune a Web Share API
+- **🛡️ Inmunidad Total al Bug de Compartir**: Se restableció la arquitectura App Shell (`html, body { position: fixed; inset: 0; overflow: hidden; }`) con scroll confinado a `<main>` y dock inferior integrado como pie de columna flex (`shrink-0`).
+- Al no existir desplazamiento del `window`, la invocación nativa de `navigator.share()` (WhatsApp, AirDrop, etc.) no desincroniza las capas de coordenadas de iOS WebKit, permaneciendo el menú inferior 100% inmóvil en la base al hacer scroll.
+
+
 
 
 
