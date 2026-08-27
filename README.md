@@ -266,6 +266,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Se cambió el fondo del contenedor raíz de la aplicación a blanco puro (`#ffffff` / `#09090b`), asignando el gris claro (`bg-zinc-100`) exclusivamente al área de scroll central. De este modo es físicamente imposible que aparezca una franja gris debajo del dock.
   - Se incorporó recarga automática inmediata (`controllerchange`) en el Service Worker para que las PWAs instaladas en iPhone descarguen las versiones más recientes al instante sin depender de la caché congelada de iOS.
 
+### ✨ [2026-08-27] - Versión 4.0.32: Corrección del Elemento Audio Fantasma en Flex Layout
+- **🎯 Eliminación del Espacio Fantasma Inferior**:
+  - Se descubrió mediante auditoría multi-agente que la etiqueta HTML `<audio>` al final del árbol de `App.tsx` se renderizaba con altura en bloque por el preflight de CSS, empujando la barra inferior hacia arriba en ~54px.
+  - Se aplicó `className="hidden"` y `aria-hidden="true"` al elemento `<audio>`, eliminando al 100% el espacio fantasma y devolviendo el menú inferior a su posición original compacta y pegada al borde.
+
+
 
 
 
