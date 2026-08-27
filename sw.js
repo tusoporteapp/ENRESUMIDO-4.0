@@ -1,4 +1,4 @@
-const CACHE_NAME = 'enresumido-v4.0.33';
+const CACHE_NAME = 'enresumido-v4.0.34';
 const STATIC_ASSETS = [
   '/',
   '/index.html',

@@ -275,6 +275,12 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
 - **🛡️ Verificación Cruzada de 3 Agentes Especialistas**:
   - Se restauró la clase `.safe-bottom` (`max(0.5rem, env(safe-area-inset-bottom, 0px))`) en el dock inferior, garantizando un área de apoyo limpia para el Home Indicator de iPhone y un hitbox táctil balanceado de 8px en dispositivos Android.
 
+### ✨ [2026-08-27] - Versión 4.0.34: Restauración de Anclaje Nativo al Borde Inferior (Fixed Body Portal)
+- **⚓ Anclaje Físico al Borde de Pantalla**:
+  - Se desacopló el dock inferior del flujo flex y se ancló directamente al cuerpo del documento (`document.body`) con `fixed bottom-0 left-0 right-0 w-full z-40`.
+  - El fondo blanco/oscuro con desenfoque de cristal abraza 100% el borde inferior de la pantalla sin dejar ningún espacio o franja visible.
+
+
 
 
 
