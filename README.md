@@ -280,6 +280,11 @@ Reproductor web y Progressive Web App (PWA) de audio-resúmenes de libros, docum
   - Se desacopló el dock inferior del flujo flex y se ancló directamente al cuerpo del documento (`document.body`) con `fixed bottom-0 left-0 right-0 w-full z-40`.
   - El fondo blanco/oscuro con desenfoque de cristal abraza 100% el borde inferior de la pantalla sin dejar ningún espacio o franja visible.
 
+### ✨ [2026-08-27] - Versión 4.0.35: Auto-Apertura del Reproductor Completo y Botón Compartir en Cada Tarjeta
+- **🎵 Auto-Apertura del Reproductor Grande**: Al presionar reproducir en cualquier tarjeta o banner, se despliega automáticamente el reproductor inmersivo a pantalla completa; al cerrarlo/bajarlo, el mini reproductor permanece activo en la barra inferior.
+- **🔗 Botón de Compartir en Tarjetas**: Se añadió el botón de compartir (`Share2`) directamente en cada tarjeta de episodio (Explorar, Favoritos, Historial, Descargas) para compartir enlaces profundos (`?listen=ID`) al instante.
+
+
 
 
 
